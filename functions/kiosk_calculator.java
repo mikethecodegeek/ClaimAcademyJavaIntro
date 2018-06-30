@@ -28,36 +28,13 @@ public class kiosk_calculator {
 		return price - cash;
 	}
 	
-	public static int getNumQuarters(double price) {
-		double numQuarters = price / .25;
-		int q = (int) numQuarters;
-		return q;	
-	}
 	
 	public static int getNumChange(double price, double currency) {
 		double numChange = price / currency;
 		int c = (int) numChange;
 		return c;	
 	}
-	
-	public static int getNumDimes(double price) {
-		double numDimes = price / .10;
-		int d = (int) numDimes;
-		return d;	
-	}
-	
-	public static int getNumNickels(double price) {
-		double numNickels = price / .05;
-		int n = (int) numNickels;
-		return n;	
-	}
-	
-	public static int getNumPennies(double price) {
-		double numPennies = price / .01;
-		int p = (int) numPennies;
-		return p;	
-	}
-	
+		
 	public static String returnChange(double price, double cash) {
 		double change = getDueChange(price,cash);
 		
