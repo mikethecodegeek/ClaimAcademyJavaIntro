@@ -34,6 +34,12 @@ public class kiosk_calculator {
 		return q;	
 	}
 	
+	public static int getNumChange(double price, double currency) {
+		double numChange = price / currency;
+		int c = (int) numChange;
+		return c;	
+	}
+	
 	public static int getNumDimes(double price) {
 		double numDimes = price / .10;
 		int d = (int) numDimes;
@@ -55,16 +61,16 @@ public class kiosk_calculator {
 	public static String returnChange(double price, double cash) {
 		double change = getDueChange(price,cash);
 		
-		int quarters = getNumQuarters(change);
+		int quarters = getNumChange(change, .25);
 		double remainingChange = change - (quarters * .25);
 	
-		int dimes = getNumDimes(remainingChange);
+		int dimes = getNumChange(remainingChange, .10);
 		remainingChange = remainingChange - (dimes * .10);
 
-		int nickels = getNumNickels(remainingChange);
+		int nickels = getNumChange(remainingChange, .05);
 		remainingChange = remainingChange - (nickels * .05);
 		
-		int pennies = getNumPennies(remainingChange);
+		int pennies = getNumChange(remainingChange, .01);
 	
 		
 		return "Quarters:" + quarters + " Dimes:" + dimes + " Nickels: " + nickels + " Pennies " + pennies;
